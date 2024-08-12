@@ -24,7 +24,7 @@
         }
 
         .background-col {
-            background: #56c44d;
+            background: #528352;
         }
 
         /* Apply the custom font */
@@ -33,12 +33,12 @@
         }
 
         .card-body {
-            margin-top: 20px; /* Add some space above the card body */
+            margin-top: 20px; 
         }
 
         .ranking-table {
-            margin: 40px auto; /* Add margin above and below the table and center it */
-            max-width: 80%; /* Optional: Set a maximum width for the table */
+            margin: 40px auto; 
+            max-width: 80%;
         }
 
         .ranking-table table {
