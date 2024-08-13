@@ -13,7 +13,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #FFFBAA;
+            background-color: #8e0000;
         }
         #countdown {
             font-size: 15vw;
@@ -36,7 +36,7 @@
             var interval = setInterval(function() {
                 $('#countdown').fadeOut(500, function() {
                     counter--;
-                    if (counter >= 0) {
+                    if (counter > 0) {
                         $('#countdown').text(counter).fadeIn(500);
                     } else {
                         clearInterval(interval);

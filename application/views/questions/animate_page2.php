@@ -12,7 +12,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #8e0000;
             margin: 0;
             font-family: Arial, sans-serif;
             flex-direction: column;
@@ -39,7 +39,7 @@
         }
 
         .background-col {
-            background: #FFFBAA;
+            background: #8e0000;
         }
 
         .logo {

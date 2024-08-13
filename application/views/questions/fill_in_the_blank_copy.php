@@ -190,7 +190,7 @@
 </head>
 <body class="background-col">
 
-<div class="container mt-3">
+<div class="container mt-2">
     <div class="question-number text text-light text-center">
         Question 1 out of 20
     </div>

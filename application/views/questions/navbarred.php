@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar</title>
+    <title>Multiple Choice</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -54,21 +54,17 @@
             left: 0;
             transform: none;
         }
+        
         .navbar-nav1 {
             display: flex;
             justify-content: center; /* Center items horizontally */
             flex-grow: 1; /* Ensure it takes up available space */
         }
 
-        .timer {
-            text-align: center; /* Center text inside the timer */
-        }
 
         @media (max-width: 768px) {
             .navbar-nav1 {
-                flex-direction: column; /* Stack items vertically on small screens */
-                align-items: center;
-                margin-top: 10px; /* Add margin on top for spacing */
+                display: contents;
             }
 
             .navbar-nav1 .timer {
@@ -79,15 +75,11 @@
                 max-height: 40px; /* Adjust image size for mobile */
             }
 
-            .navbar-nav {
-                display: flex; /* Ensure navbar items are displayed correctly */
-                justify-content: center; /* Center items horizontally */
-                width: 100%; /* Full width for nav items */
-            }
-
             .navbar-custom .navbar-brand {
+                display: none;
                 font-size: 1rem; /* Smaller font size for mobile */
             }
+
         }
 
         @media (max-width: 992px) {
@@ -104,18 +96,16 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom">
         <a class="navbar-brand" href="#">Dominiquiz</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav1 mx-auto">
-                <li class="nav-item">          
-                    <div id="timer" class="timer">00:30</div>     
+            <ul class="navbar-nav1">
+                <li class="nav-item active">          
+                <img src="<?php echo base_url('assets/img/logo-white.png'); ?>" alt="Logo" class="img-fluid">
                 </li>
             </ul>        
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <img src="<?php echo base_url('assets/img/logo-white.png'); ?>" alt="Logo" class="img-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item active img-1">
+                    <div id="timer" class="timer">00:30</div>     
                 </li>
             </ul>
-        </div>
     </nav>
 
     
