@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | In some instances, however, you may want to remap this relationship
 | so that a different class/function is called than the one
 | corresponding to the URL.
-|
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 | Please see the user guide for complete details:
 |
 |	https://codeigniter.com/userguide3/general/routing.html
@@ -49,17 +49,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
 $route['default_controller'] = 'main_controller';
+$route['create'] = 'main_controller/create';
+$route['room/(:num)'] = 'main_controller/room/$1';
+$route['room/host/(:num)'] = 'main_controller/hostgame/$1';
+$route['quiz_creator'] = 'main_controller/creator';
+$route['start_game'] = 'main_controller/start_game';
+$route['start_game_host'] = 'main_controller/start_game_host';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// Routes for ApiController
-$route['api/fetch_node'] = 'api/ApiController/fetch_from_node';
-$route['test/hello'] = 'TestController/hello';
-
-// Example of a route that captures an ID parameter
-// $route['api/item/(:num)'] = 'ApiController/item/$1'; // Maps to ApiController::item($id)
-// application/config/routes.php
 
 //countdown routes
 $route['countdownblue'] = 'main_controller/countdownblue';
@@ -69,5 +69,19 @@ $route['animatepagered'] = 'main_controller/animatepage2';
 $route['fill_in_the_blank_test'] = 'main_controller/fill_in_the_blank_test';
 $route['multiplechoicetest'] = 'main_controller/multiplechoicetest';
 $route['ranking_per'] = 'main_controller/rankperpage';
+
+
+
+
+// Routes for ApiController
+$route['api/fetch_node'] = 'api/ApiController/fetch_from_node';
+$route['test/hello'] = 'TestController/hello';
+$route['start-timer'] = 'time_controller/start_timer';
+
+
+// Example of a route that captures an ID parameter
+// $route['api/item/(:num)'] = 'ApiController/item/$1'; // Maps to ApiController::item($id)
+// application/config/routes.php
+
 
 

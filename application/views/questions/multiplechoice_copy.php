@@ -40,16 +40,18 @@
             padding: 30px;
             font-size: 18px;
             color: #ffff;
+            background-color: #59779a;
             border: none;
             border-radius: 5px;
             width: 100%; /* Make buttons take full width */
             opacity: 0;
             animation: fadeIn 2s ease-out 1s forwards; /* Staggered fade-in for buttons */
         }
-        .answer-btn.red { background-color: #ff9700; } /* Red */
-        .answer-btn.green { background-color: #ff9700; } /* Green */
-        .answer-btn.blue { background-color: #ff9700; } /* Blue */
-        .answer-btn.orange { background-color: #ff9700; } /* Orange */
+        /*
+        .answer-btn.red { background-color: #222222; } 
+        .answer-btn.green { background-color: #222222; } 
+        .answer-btn.blue { background-color: #ff9700; } 
+        .answer-btn.orange { background-color: #ff9700; } */
 
         .background-col {
             background: #ffffff;
@@ -141,14 +143,15 @@
             padding: 20px;
             background-color: #444;
             border-radius: 10px;
+            width: 50%;
             overflow: hidden;
         }
 
         .question-number1 {
             position: relative;
             font-size: 1.0rem;
-            background-color: #6ba1d7;
-            padding: 30px;
+            background-color: #d7a16b;
+            padding: 25px;
             text-align: center;
             border-radius: 30px;
             width: 50%;
@@ -166,7 +169,7 @@
             transition: width 1s linear; 
         }
 
-        .question-number::before {
+        .question-number1::before {
             content: "";
             position: absolute;
             top: -20px;
@@ -242,6 +245,23 @@
                 max-width: 75%;
             }
 
+            .question-number {
+                font-size: 0.8rem;  
+                padding: auto;
+                background-color: #444;
+                border-radius: 10px;
+                overflow: hidden;
+                margin: auto;
+            }
+
+            .question-number1 {
+                font-size: 0.8rem;
+                padding: 10px;
+                border-radius: 10px;
+                width: auto;
+            
+            }
+
         }
         @media (max-width: 430px) {
             h1 {
@@ -257,16 +277,27 @@
             }
 
             .question-number {
-            font-size: 0.8rem;
-            padding: 20px;
-            background-color: #444;
-            border-radius: 10px;
-            overflow: hidden;
+                font-size: 0.8rem;  
+                padding: auto;
+                background-color: #444;
+                border-radius: 10px;
+                overflow: hidden;
+                margin: auto;
             }
-        }
+
+            .question-number1 {
+                font-size: 0.8rem;
+                padding: 10px;
+                border-radius: 10px;
+                width: auto;
+            
+            }
+         }
     </style>
 </head>
 <body class="background-col">
+
+<div class="countdown-bar"></div>
 
 <div class="container mt-2">
     <div class="question-number1 text-light text-center">
@@ -275,48 +306,48 @@
 </div>
 
 
-    <div class="container-fluid mt-2">
-        <div class="row justify-content-between">
-            <div class="col-sm-8">
-            <div class="question-number text-light text-center">
-                    <div class="countdown-bar"></div>
-                            Question 1 out of 20
-                </div>
-            </div>
 
-            <!--
-            <div class="col-sm-3">
-                <div class="question-number1">Display Username</div>
-            </div>
-             -->
-       </div>
-    </div>
-    
-    
-    
-
-    <div class="container-fluid quiz-container">
-        <h5 class="text-dark text-change mt-5">Multiple Choice:</h5> 
-        <div class="row align-items-center">
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h1 id="question-text" class="fit-text">What is the capital of France?
-                        <button id="speak-button" class="btn btn-link">
-                            <i class="fas fa-volume-up"></i></button>
-                    </h1>
-                </div>
-                <div class="image-container">
-                    <img src="<?php echo base_url('assets/img/france-flag.jpg'); ?>" alt="...">
-                </div>       
-            </div>
-            <div class="col-md-4 mt-4">
-                <button class="btn answer-btn red btn-block">A) Berlin</button>
-                <button class="btn answer-btn green btn-block">B) Madrid</button>
-                <button class="btn answer-btn blue btn-block">C) Paris</button>
-                <button class="btn answer-btn orange btn-block">D) Rome</button>
+<div class="container-fluid mt-2">
+    <div class="row justify-content-between">
+        <div class="col-sm-8">
+        <div class="question-number text-light text-center">
+                        Question 1 out of 20
             </div>
         </div>
+
+        <!--
+        <div class="col-sm-3">
+            <div class="question-number1">Display Username</div>
+        </div>
+            -->
     </div>
+</div>
+    
+    
+    
+
+<div class="container-fluid quiz-container">
+    <h5 class="text-dark text-change mt-5">Multiple Choice:</h5> 
+    <div class="row align-items-center">
+        <div class="col-md-8">
+            <div class="card-body">
+                <h1 id="question-text" class="fit-text">What is the capital of France?
+                    <button id="speak-button" class="btn btn-link">
+                        <i class="fas fa-volume-up"></i></button>
+                </h1>
+            </div>
+            <div class="image-container">
+                <img src="<?php echo base_url('assets/img/france-flag.jpg'); ?>" alt="...">
+            </div>       
+        </div>
+        <div class="col-md-4 mt-4">
+            <button class="btn answer-btn red btn-block">A) Berlin</button>
+            <button class="btn answer-btn green btn-block">B) Madrid</button>
+            <button class="btn answer-btn blue btn-block">C) Paris</button>
+            <button class="btn answer-btn orange btn-block">D) Rome</button>
+        </div>
+    </div>
+</div>
 
     <!--
     <div class="bottom-left">
@@ -348,7 +379,7 @@
             } else {
                 questionText.style.fontSize = `${baseFontSize}px`;
             }
-        }
+        
 
         document.addEventListener('DOMContentLoaded', () => {
             adjustFontSize();

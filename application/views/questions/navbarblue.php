@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Montserrat:wght@700&family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
         .navbar-custom {
-            background-color: #3a9a91; ; /* A darker shade to distinguish the navbar */
+            background-color: #cc0000; ; /* A darker shade to distinguish the navbar */
         }
         .navbar-custom .navbar-brand,
         .navbar-custom .navbar-nav .nav-link {

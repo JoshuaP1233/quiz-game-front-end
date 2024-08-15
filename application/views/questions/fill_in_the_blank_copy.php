@@ -84,6 +84,28 @@
             font-family: 'Roboto', sans-serif;
         }
 
+        .countdown-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 10px;
+            background-color: #ff9700; 
+            width: 100%; 
+            transform-origin: left center; 
+            transition: width 1s linear; 
+        }
+
+        .question-number1 {
+            position: relative;
+            font-size: 1.0rem;
+            background-color: #6ba1d7;
+            padding: 25px;
+            text-align: center;
+            border-radius: 30px;
+            width: 50%;
+            margin: auto;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -112,14 +134,14 @@
 
         .question-number {
             position: relative;
-            font-size: 1.5rem;
+            font-size: 1.5rem;s
             padding: 20px;
             background-color: #444;
             border-radius: 10px;
             overflow: hidden;
         }
 
-        .question-number::before {
+        .question-number1::before {
             content: "";
             position: absolute;
             top: -20px;
@@ -165,7 +187,13 @@
             }
 
             .question-number {
-                font-size: 1.2rem; /* Adjust font size for mobile */
+                font-size: 0.8rem;
+                padding: 10px;
+              
+            }
+
+            .question-number1 {
+                font-size: 0.8rem;
                 padding: 10px;
             }
 
@@ -182,50 +210,105 @@
 
             h1 {
                 text-align: center;
-            }        
+                font-size: 20px!important;
+            } 
+            
+            .image-container img {
+                max-width: 75%;
+            }  
+
+            .mt-5 {
+                margin-top: auto!important;
+            }
         }
+
+        @media (max-width: 430px) {
+            h1 {
+                text-align: center;
+                font-size: 15x!important;
+            } 
+
+            .image-container img {
+                max-width: 60%;
+            }
+
+            h5 {
+                font-size: 15px!important;
+            }
+
+
+            .question-number {
+                font-size: 0.8rem;  
+                background-color: #444;
+                border-radius: 10px;
+                overflow: hidden;
+                margin: auto;
+            }
+
+            .question-number1 {
+                font-size: 0.8rem;
+                padding: 10px;
+                border-radius: 10px;
+                width: auto;
+            
+            }
+
+            .mt-5 {
+                margin-top: 2rem!important;
+            }
+        }
+        
 
 
     </style>
 </head>
 <body class="background-col">
+    <div class="countdown-bar"></div>
 
-<div class="container mt-2">
-    <div class="question-number text text-light text-center">
-        Question 1 out of 20
-    </div>
-</div>
 
-<div class="container quiz-container">
-    <h5 class="text-white text-change mt-5">Fill in the blank:</h5>
-    <div class="row">
-        <div class="col-md-11 offset-md-1">
-            <h1 id="question-text" class="fit-text">The capital of France is  <span id="answer-placeholders"></span>.<button id="speak-button" class="btn btn-link">
-            <i class="fas fa-volume-up"></i></button></h1>
+    <div class="container mt-2">
+        <div class="question-number1 text-light text-center">
+                Display Name
         </div>
     </div>
 
-    <div class="image-container">
-        <img src="<?php echo base_url('assets/img/france-flag.jpg'); ?>" alt="Flag of France">
-    </div>
-</div>
 
-<div class="bottom-center">
-    <div class="input-group input-group-lg mb-3 mt-4">
-        <input type="text" class="form-control py-2 px-3" placeholder="Enter Answer" aria-label="Input answer" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">Enter</button>
+    <div class="container mt-2">
+        <div class="question-number text text-light text-center">
+            Question 1 out of 20
         </div>
     </div>
-</div>
 
-<div class="bottom-left">
-    <h3>Display Username</h3>
-    <?php 
-    //session_start();
-    //echo "Logged in as: " . $_SESSION['username'];
-    ?>
-</div>
+    <div class="container quiz-container">
+        <h5 class="text-white text-change mt-5">Fill in the blank:</h5>
+        <div class="row">
+            <div class="col-md-11 offset-md-1">
+                <h1 id="question-text" class="fit-text">The capital of France is  <span id="answer-placeholders"></span>.<button id="speak-button" class="btn btn-link">
+                <i class="fas fa-volume-up"></i></button></h1>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="<?php echo base_url('assets/img/france-flag.jpg'); ?>" alt="Flag of France">
+        </div>
+    </div>
+
+    <div class="bottom-center">
+        <div class="input-group input-group-lg mb-3 mt-4">
+            <input type="text" class="form-control py-2 px-3 input-text" placeholder="Enter Answer" aria-label="Input answer" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">Enter</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-left">
+        <h3>Display Username</h3>
+        <?php 
+        //session_start();
+        //echo "Logged in as: " . $_SESSION['username'];
+        ?>
+    </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -281,7 +364,24 @@
                 alert('Sorry, your browser does not support text-to-speech.');
             }
         });
-    });
+
+
+        const countdownBar = document.querySelector('.countdown-bar');
+            let totalTime = 30; // Total countdown time in seconds
+            let timeLeft = totalTime;
+            
+            function updateCountdown() {
+                const percentage = (timeLeft / totalTime) * 100;
+                countdownBar.style.width = `${percentage}%`;
+                timeLeft--;
+                if (timeLeft < 0) {
+                    clearInterval(countdownInterval);
+                    // Handle timer end (e.g., go to next question or end quiz)
+                }
+            }
+            
+            const countdownInterval = setInterval(updateCountdown, 1000); // Update every second
+        });
 </script>
 </body>
 </html>
